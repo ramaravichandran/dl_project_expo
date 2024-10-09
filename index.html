@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="templates/index.css" rel="stylesheet">
+        <script>
+            function click_img(){
+                
+                document.getElementById("overalldiv").style.display="none";
+                document.getElementById("newdiv").style.display="block";
+                document.getElementById("newdiv_div_img").style.display="block";
+                document.getElementById("newdiv_div_vid").style.display="none"
+                document.getElementById("newdiv_webcam").style.display="none"
+            }
+             function click_video(){
+                
+                document.getElementById("overalldiv").style.display="none";
+                document.getElementById("newdiv").style.display="block";
+                document.getElementById("newdiv_div_img").style.display="none";
+                document.getElementById("newdiv_div_vid").style.display="block";
+                document.getElementById("newdiv_webcam").style.display="none";
+            }
+             function click_cam(){
+                
+                document.getElementById("overalldiv").style.display="none";
+                document.getElementById("newdiv").style.display="block";
+                document.getElementById("newdiv_div_img").style.display="none";
+                document.getElementById("newdiv_div_vid").style.display="none";
+                document.getElementById("newdiv_webcam").style.display="block"
+            }
+            function redirect(){
+                 document.getElementById("newdiv").style.display="none";
+                document.getElementById("overalldiv").style.display="inline-flex";
+            }
+        </script>
+        <style>
+        
+       #btnsubmit,#btncancel{
+    width: 47%;
+    height: 7vh;
+    display:inline;
+    
+    margin:auto auto;
+    background-color:red;
+    border-radius:10px;
+    text-align:center;
+    color:white;
+    font-size:20px;
+    border:none;
+    margin-top:10%;
+}
+#btnsubmit{
+         background-color:green;   
+        }
+ 
+input[type=file]{
+    width:100vw;
+    margin:auto;
+    display:block;
+}
+#newdiv_div_img,#newdiv_div_vid,#newdiv_webcam{
+    display: block;
+    
+}
+        #newdiv_div_img,#newdiv_div_vid,#newdiv_webcam{
+            display:none;
+        }
+        #webcamform,#newdiv_webcam{
+            width:100%;
+            margin:auto;
+        }
+        body{
+    width: 99vw;
+    height: 99vh;
+    background:linear-gradient(rgb(177, 177, 232),rgb(229, 180, 180));
+    overflow-y: hidden;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+}
+h1{
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.overalldiv{
+    width: 95vw;
+    height: 80vh;
+    margin-top: 5%;
+    display: inline-flex;
+}
+#imgdiv1,#imgdiv2,#imgdiv3{
+    width: 25%;
+    background-color: rgb(176, 227, 235);
+    height: 50vh;
+    margin: auto auto;
+    margin-left: 5%;
+    margin-top: 3%;
+    border-radius: 10px;
+    
+}
+
+.upperdiv,.upperdiv_video,.upperdiv_cam{
+    width: 100%;
+    height: 70%;
+    display: block;
+    background-image: url('{{ url_for('static', filename='images/image.svg') }}');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.upperdiv_video{
+    background-image: url('{{ url_for('static', filename='images/video.svg') }}');;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.upperdiv_cam{
+    background-image:url('{{ url_for('static', filename='images/webcam3.svg') }}');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.lowerdiv{
+    width: 100%;
+    display: block;
+    margin: auto auto;
+}
+
+#imgbtn,#imgvideo,#imgwebcam{
+    width: 50%;
+    margin: auto auto;
+    height: 10vh;
+    margin-top: 5%;
+    margin-left: 25%;
+    border-radius: 10px;
+    background-color: rgb(102, 102, 226);
+    color: white;
+    border: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+
+#imgbtn:hover,#imgvideo:hover,#imgwebcam:hover{
+    background-color:rgb(133, 82, 72) ;
+
+}
+
+.newdiv_div{
+    width: 80vw;
+    height: 80vh;
+    background-color: yellow;
+    margin: auto auto;
+}
+
+#imgform{
+    margin: auto auto;
+    width: 40%;
+    height: 50%;
+    background-color: aqua;
+    padding: 3%;
+    margin-top:5%;
+    
+   
+}
+#imgip-input {
+        width: 300px; /* Adjust width as needed */
+        height: 50px; /* Adjust height as needed */
+        font-size: 16px; /* Adjust font size as needed */
+        padding: 10px;
+        border-radius: 5px;
+      
+    }
+#ewdiv_webcam{
+    width:100%;
+    margin:auto;
+    height:20vh;
+}
+        </style>
+
+    </head>
+
+    <body>
+        <h1>OBJECT DETECTION SYSTEM</h1>
+        <div class="overalldiv" id="overalldiv">
+            <div id=imgdiv1>
+                <div class="upperdiv">
+                
+                
+
+                </div>
+                <div class="lowerdiv">
+                
+                     <button type="submit" id="imgbtn" onclick="click_img()">Upload an Image</button>
+                
+                </div>
+            </div>
+             <div id=imgdiv2>
+                <div class="upperdiv_video">
+                   
+                </div>
+                <div class="lowerdiv">
+                 
+                 
+                     <button type="submit" id="imgvideo" onclick="click_video()">Upload a Video</button>
+                     
+                </div>
+            </div>
+             <div id=imgdiv3>
+                <div class="upperdiv_cam">
+                   
+                </div>
+                <div class="lowerdiv">
+                     <button type="submit" id="imgwebcam" onclick="click_cam()">Use Webcam</button>
+                </div>
+            </div>
+        </div>
+        <div class="newdiv" id="newdiv">
+            <div id="newdiv_div_img">
+                 <form method="POST" action="/detect_image" enctype="multipart/form-data" id="imgform">
+                 <h1>Please Upload image</h1>
+                
+                    <input id="imgip-input" type="file" name="file" accept="image/*" required  >
+                    <button type="submit" id="btnsubmit">Upload and Detect Image</button>
+                    <button type="reset" id="btncancel" onclick="redirect()">Cancel</button>
+                 </form>
+                  
+
+            </div>
+            <div id="newdiv_div_vid">
+                 <form method="POST" action="/detect_video" enctype="multipart/form-data" id="imgform">
+                 <h1>Please Upload Video</h1>
+                
+                    <input id="imgip-input" type="file" name="file" accept="video/*" required  >
+                    <button type="submit" id="btnsubmit">Upload to Detect Video</button>
+                    <button type="reset" id="btncancel" onclick="redirect()">Cancel</button>
+                 </form>
+            
+            </div>
+
+            <div id="newdiv_webcam">
+             <div  id="imgform">
+                 <h1> Open Webcamera & Smile Please:)</h1>
+                
+                    
+                    <a href="/webcam_feed" target="_blank" >
+                    <button id="btnsubmit">Upload to Detect Video
+                    </button></a>
+                    <button type="reset" id="btncancel" onclick="redirect()">Cancel</button>
+                 </div>
+                  
+                 
+
+            </div>
+        </div>
+    </body>
+</html>
